@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <nav>
+        <h1>MY GALLERY</h1>
+        <div>
+            <a href="#">About</a>
+            <a href="#">Register</a>
+            <a href="#">Login</a>
+        </div>
+    </nav>
+    <h2>This is my Gallery Website</h2>
+    
+    <div class="images-container">
+    <img data-src="./images/ai.jpg" alt="">
+
+    <img data-src="./images/code.jpg" alt="">
+    
+    <img data-src="./images/fg.jpg" alt="">
+    
+    <img data-src="./images/hero.jpg" alt="">
+
+    <img data-src="./images/images.jpg" alt="">
+    
+    <img data-src="./images/lapt.jpg" alt="">
+ 
+    <img data-src="./images/lock.jpg" alt="">
+   
+    <img data-src="./images/lpt.jpg" alt="">
+</div>
+    <footer>
+        Built by Wilson Njugia <a href="https://github.com/reactifyStudio">-reactifyStudio</a>.
+        &copy; 2020. All rights reserved.
+    </footer>
+
+    <script>
+        const targets=document.querySelectorAll("img");
+
+        const lazyLoad=target=>{
+            const io = new IntersectionObserver((entries,observer)=>{
+                entries.forEach(entry=>{
+                    if(entry.isIntersecting){
+                        const img=entry.target;
+                        const src=img.getAttribute("data-src");
+                        
+                        img.setAttribute("src",src);
+                        img.classList.add("fade");
+                        observer.disconnect();
+                    }
+                })
+            },{threshold:[0.7]});
+            io.observe(target);
+        }
+        targets.forEach(lazyLoad);
+    </script>
+
+</body>
+</html>
