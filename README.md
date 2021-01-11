@@ -1,4 +1,4 @@
-# ImageLoad-IntersectionObserver
+# Image Lazy Loading with the IntersectionObserver JavaScript API
 
 A SIMPLE IMAGE WEB PAGE THAT LAZY-LOADS IMAGES USING Intersection Observer Browser API.
 
